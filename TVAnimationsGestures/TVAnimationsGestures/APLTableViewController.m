@@ -7,114 +7,121 @@
 //
 
 #import "APLTableViewController.h"
+#import "APLPlay.h"
+#import "APLSectionInfo.h"
+#import "APLQuoteCell.h"
 
-@interface APLTableViewController ()
+
+@interface APLEmailMenuItem : UIMenuItem
+
+@property (nonatomic) NSIndexPath *indexPath;
 
 @end
 
-@implementation APLTableViewController
+@implementation APLEmailMenuItem
+@end
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+
+#pragma mark - APLTableViewController
+
+static NSString *SectionHeaderViewIdentifier = @"SectionHeaderViewIdentifier";
+
+@interface APLTableViewController ()
+
+@property (nonatomic) NSMutableArray *sectionInfoArray;
+@property (nonatomic) NSIndexPath *pinchedIndexPath;
+@property (nonatomic) NSInteger openSectionIndex;
+@property (nonatomic) CGFloat initialOinchHeight;
+
+@property (nonatomic) IBOutlet APLSectionHeaderView *sectionHeaderView;
+
+@property (nonatomic) NSInteger uniformRowHeight;
+@end
+
+
+#pragma mark - 
+
+#define DEFAULT_ROW_HEIGHT 88
+#define HEADER_HEIGHT 48
+
+
+@implementation APLTableViewController
+- (BOOL)canBecomeFirstResponder {
+    return YES;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIPinchGestureRecognizer *pinRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
+    [self.tableView addGestureRecognizer:pinRecognizer];
+    
+    //设置默认值
+    self.tableView.sectionFooterHeight = HEADER_HEIGHT;
+    self.uniformRowHeight = DEFAULT_ROW_HEIGHT;
+    self.openSectionIndex = NSNotFound;
+    
+    UINib *sectionHeaderNib = [UINib nibWithNibName:@"SectionHeaderView" bundle:nil];
+    [self.tableView registerNib:sectionHeaderNib forHeaderFooterViewReuseIdentifier:SectionHeaderViewIdentifier];
+    
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if ((self.sectionInfoArray == nil) || ([self.sectionInfoArray count] != [self numberOfSectionsInTableView:self.tableView])) {
+        NSMutableArray *infoArray = [[NSMutableArray alloc] init];
+        
+        for (APLPlay *play in self.plays) {
+            
+            APLSectionInfo *sectionInfo = [[APLSectionInfo alloc] init];
+            sectionInfo.play = play;
+            sectionInfo.open = NO;
+            
+            NSNumber *defaultRowHeight = @(DEFAULT_ROW_HEIGHT);
+            NSInteger countOfQuotations = [[sectionInfo.play quotations] count];
+            for (NSInteger i = 0; i < countOfQuotations; i++) {
+                [sectionInfo insertObject:defaultRowHeight inRowHeightsAtIndex:i];
+            }
+            [infoArray addObject:sectionInfo];
+        }
+        self.sectionInfoArray = infoArray;
+    }
+    
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return [self.plays count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    APLSectionInfo *sectionInfo = (self.sectionInfoArray)[section];
+    NSInteger numStoriesInSection = [[sectionInfo.play quotations]  count];
+    return sectionInfo.open ? numStoriesInSection : 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
+    static NSString *QuoteCellIdentifier = @"QuoteCellIdentifier";
+    APLQuoteCell *cell = (APLQuoteCell *)[tableView dequeueReusableCellWithIdentifier:QuoteCellIdentifier];
+    if ([MFMailComposeViewController canSendMail]) {
+        if (cell.longPressRecognizer != nil) {
+            UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+            cell.longPressRecognizer = longPressRecognizer;
+        }
+    }
+    else {
+        cell.longPressRecognizer = nil;
+    }
+
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end
