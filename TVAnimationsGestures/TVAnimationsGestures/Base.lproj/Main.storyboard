@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="88" id="rcY-1a-Ie6">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="88" id="rcY-1a-Ie6" customClass="APLQuoteCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rcY-1a-Ie6" id="JUG-UV-an4">
@@ -35,7 +35,7 @@
                                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="10"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCc-Bh-M1P">
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCc-Bh-M1P" customClass="APLHighlightingTextView">
                                             <rect key="frame" x="12" y="35" width="296" height="46"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,6 +57,11 @@
                                         <constraint firstItem="Xk1-uc-hKf" firstAttribute="baseline" secondItem="CsY-6s-D1z" secondAttribute="baseline" id="s8Q-5g-ZMq"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="actAndSceneLabel" destination="Xk1-uc-hKf" id="9K8-eL-Ghu"/>
+                                    <outlet property="characterLabel" destination="CsY-6s-D1z" id="liB-MH-sD3"/>
+                                    <outlet property="quotationTextView" destination="ZCc-Bh-M1P" id="1Hq-R5-Bah"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>

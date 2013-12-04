@@ -1,3 +1,4 @@
+
 //
 //  APLTableViewController.h
 //  TVAnimationsGestures
@@ -6,11 +7,13 @@
 //  Copyright (c) 2013年 lanhu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <MessageUI/MessageUI.h>
+#import "APLSectionHeaderView.h"
 
 
-@interface APLTableViewController : UITableViewController <MFMailComposeViewControllerDelegate>
+@interface APLTableViewController : UITableViewController <MFMailComposeViewControllerDelegate, SectionHeaderViewDelegate>
 
+
+@property (nonatomic) NSArray *plays;
 @end

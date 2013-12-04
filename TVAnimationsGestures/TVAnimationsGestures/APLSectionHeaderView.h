@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@protocol SectionHeaderView;
+@protocol SectionHeaderViewDelegate;
 
 @interface APLSectionHeaderView : UITableViewHeaderFooterView
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIButton *disclosureButton;
-@property (nonatomic, weak) IBOutlet id <SectionHeaderView>delegate;
+@property (nonatomic, weak) IBOutlet id <SectionHeaderViewDelegate>delegate;
 
 
 @property (nonatomic) NSInteger section;
@@ -28,7 +28,7 @@
 #pragma mark -
 
 
-@protocol SectionHeaderView <NSObject>
+@protocol SectionHeaderViewDelegate <NSObject>
 
 @optional
 - (void)sectionHeaderView:(APLSectionHeaderView *)sectionHeaderView sectionOpened:(NSInteger)section;

@@ -5,19 +5,31 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
 	<string>F1B00501-E239-4BF7-8735-1C2179489410</string>
+=======
+	<string>EBC963B5-D2B3-449A-BD0D-653EEDEBF222</string>
+>>>>>>> 7181f77623e194e6b2498afab38944ae93ac13e9
 	<key>IDESourceControlProjectName</key>
 	<string>TVAnimationsGestures</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+<<<<<<< HEAD
 		<key>265723B0-5258-4406-B079-229D51A83C9C</key>
+=======
+		<key>EAB3C2DE-463C-434B-AC9B-CB211AD6252D</key>
+>>>>>>> 7181f77623e194e6b2498afab38944ae93ac13e9
 		<string>https://github.com/liaocpen/TVAnimationsGestures.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>TVAnimationsGestures/TVAnimationsGestures.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+<<<<<<< HEAD
 		<key>265723B0-5258-4406-B079-229D51A83C9C</key>
+=======
+		<key>EAB3C2DE-463C-434B-AC9B-CB211AD6252D</key>
+>>>>>>> 7181f77623e194e6b2498afab38944ae93ac13e9
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +37,22 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
+<<<<<<< HEAD
 	<string>265723B0-5258-4406-B079-229D51A83C9C</string>
+=======
+	<string>EAB3C2DE-463C-434B-AC9B-CB211AD6252D</string>
+>>>>>>> 7181f77623e194e6b2498afab38944ae93ac13e9
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+<<<<<<< HEAD
 			<string>265723B0-5258-4406-B079-229D51A83C9C</string>
+=======
+			<string>EAB3C2DE-463C-434B-AC9B-CB211AD6252D</string>
+>>>>>>> 7181f77623e194e6b2498afab38944ae93ac13e9
 			<key>IDESourceControlWCCName</key>
 			<string>TVAnimationsGestures</string>
 		</dict>

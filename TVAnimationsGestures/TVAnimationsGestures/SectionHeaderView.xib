@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1" customClass="APLSectionHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgl-8a-34U">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63a-LQ-VH4">
+                            <rect key="frame" x="35" y="14" width="42" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYN-h1-wF8">
+                            <rect key="frame" x="0.0" y="6" width="35" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="Dbh-xf-I8h"/>
+                                <constraint firstAttribute="height" constant="35" id="brL-az-DUK"/>
+                            </constraints>
+                            <state key="normal" image="carat.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="bYN-h1-wF8" firstAttribute="leading" secondItem="bgl-8a-34U" secondAttribute="leading" id="37y-PS-N63"/>
+                        <constraint firstItem="bYN-h1-wF8" firstAttribute="top" secondItem="bgl-8a-34U" secondAttribute="top" constant="6" id="7BX-PP-LWX"/>
+                        <constraint firstItem="63a-LQ-VH4" firstAttribute="leading" secondItem="bYN-h1-wF8" secondAttribute="trailing" id="aBq-5w-lAl"/>
+                        <constraint firstItem="63a-LQ-VH4" firstAttribute="top" secondItem="bgl-8a-34U" secondAttribute="top" constant="14" id="w4l-Fu-0oP"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="bgl-8a-34U" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="AcU-LY-yak"/>
+                <constraint firstItem="bgl-8a-34U" firstAttribute="top" secondItem="1" secondAttribute="top" id="MKa-f4-QAX"/>
+                <constraint firstAttribute="trailing" secondItem="bgl-8a-34U" secondAttribute="trailing" id="NQh-tS-9TR"/>
+                <constraint firstAttribute="bottom" secondItem="bgl-8a-34U" secondAttribute="bottom" id="R1A-Na-wmx"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="disclosureButton" destination="bYN-h1-wF8" id="WTQ-IM-QQx"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="carat.png" width="11" height="11"/>
+    </resources>
+</document>
