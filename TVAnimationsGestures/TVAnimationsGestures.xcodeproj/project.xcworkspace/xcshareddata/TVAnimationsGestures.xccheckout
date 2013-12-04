@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F1B00501-E239-4BF7-8735-1C2179489410</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TVAnimationsGestures</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>265723B0-5258-4406-B079-229D51A83C9C</key>
+		<string>https://github.com/liaocpen/TVAnimationsGestures.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TVAnimationsGestures/TVAnimationsGestures.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>265723B0-5258-4406-B079-229D51A83C9C</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/liaocpen/TVAnimationsGestures.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>265723B0-5258-4406-B079-229D51A83C9C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>265723B0-5258-4406-B079-229D51A83C9C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TVAnimationsGestures</string>
+		</dict>
+	</array>
+</dict>
+</plist>

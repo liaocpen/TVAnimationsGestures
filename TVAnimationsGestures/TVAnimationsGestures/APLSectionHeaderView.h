@@ -35,3 +35,4 @@
 - (void)sectionHeaderView:(APLSectionHeaderView *)sectionHeaderView sectionClosed:(NSInteger)section;
 
 @end
+
